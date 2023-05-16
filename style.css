@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    transition: all 0.2s linear;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background: #0f172a;
+    color: #fff;
+}
+
+::selection {
+    color: #0f172a;
+    background: #fff;
+}
+
+.wrapper {
+    display: grid;
+    gap: 2.5rem;
+    /* auto-fit: lắp đầy khoảng trống, min là 250px, max là 1fr */
+    /* auto-fill: chỉ lắp đầy phần tử */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 5rem;
+}
+
+.wrapper li {
+    background: #1e293b;
+    color: #fff;
+    height: 25rem;
+    border-radius: .5rem;
+    padding: 1.5rem 2rem 2rem;
+}
+
+.add-box,
+.icon,
+.bottom-info,
+.popup-box,
+header,
+.settings .menu li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-box {
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-box .icon {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    color: #62bdf2;
+    font-size: 4rem;
+    justify-content: center;
+}
+
+.add-box .icon>div {
+    position: absolute;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    border: 2px dashed #62bdf2;
+}
+
+.add-box .icon:hover i {
+    color: #9cd0ef;
+    transform: rotate(135deg);
+    transition: .2s linear;
+}
+
+.add-box .icon>div:hover {
+    border: 2px dashed #9cd0ef;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.add-box a {
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    position: relative;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    padding: 1rem 1.4rem;
+    border-radius: .9rem;
+}
+
+.add-box a p {
+    position: relative;
+    z-index: 1;
+}
+
+.add-box a::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: #1e293b;
+    border-radius: .9rem;
+    transition: .3s linear;
+}
+
+.add-box a:hover::before {
+    opacity: 0.7;
+}
+
+.add-box a::after {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    border-radius: .9rem;
+    transition: .3s linear;
+    opacity: 0;
+    filter: blur(1.5rem);
+}
+
+.add-box a:hover::after {
+    opacity: 1;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note .details {
+    max-height: 16rem;
+    overflow-y: auto;
+}
+
+.note .details p {
+    text-transform: capitalize;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.note .details span {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.6rem;
+    background: #172037;
+    border-radius: 2px;
+    padding: 0 5px;
+    text-transform: capitalize;
+}
+
+.note .details span:nth-child(odd) {
+    background: #3d4862;
+}
+
+.note .bottom-info {
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+.bottom-info span {
+    color: #6d6d6d;
+    background: none;
+    font-size: 1.4rem;
+}
+
+.bottom-info .settings {
+    position: relative;
+}
+
+.bottom-info .settings i {
+    color: #6d6d6d;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.settings .menu {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    padding: 5px 0;
+    background-color: #172037;
+    border-radius: 4px;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.2s ease;
+}
+
+.settings:hover .menu {
+    transform: scale(1);
+}
+
+.settings .menu li {
+    height: 2.5rem;
+    font-size: 1.6rem;
+    margin-bottom: 2px;
+    padding: 1.7rem 1.5rem;
+    text-transform: capitalize;
+    box-shadow: none;
+    background-color: #172037;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.menu li:last-child {
+    margin-bottom: 0;
+}
+
+.menu li:hover {
+    background-color: #0f172a;
+}
+
+.menu li i {
+    padding-right: 8px;
+}
+
+@media (max-width: 660px) {
+    .wrapper {
+        margin: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .bottom-info .settings i {
+        font-size: 1.7rem;
+    }
+}
