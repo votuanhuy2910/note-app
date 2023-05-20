@@ -58,6 +58,7 @@ body {
 }
 
 @keyframes animate {
+
     0%,
     100% {
         filter: hue-rotate(0deg);
@@ -402,9 +403,22 @@ header,
 }
 
 .note {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
+}
+
+.note::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 65%;
+    height: 100%;
+    background: rgba(255, 255, 255, .075);
+    transform: skew(410deg);
 }
 
 .note .details .title p {
@@ -415,7 +429,7 @@ header,
 }
 
 .note .details .desc {
-    max-height: 13rem;
+    max-height: 11rem;
     overflow-y: auto;
 }
 
@@ -437,11 +451,6 @@ header,
     border-radius: 2px;
     padding: 0 5px;
     font-size: 2rem;
-    text-transform: capitalize;
-}
-
-.note .details .desc span:nth-child(odd) {
-    background: #3d4862;
 }
 
 .note .bottom-info {

@@ -62,7 +62,7 @@ function showNotes() {
 	if (!notes) return;
 	document.querySelectorAll(".note").forEach((li) => li.remove());
 	notes.forEach((note, id) => {
-		let filterDesc = note.description.replaceAll("\n", "<br/>");
+		let filterDesc = note.description.replaceAll("\n", "<br/>- ");
 		let liTag = `
             <li class="note">
                 <div class="details">
@@ -71,7 +71,7 @@ function showNotes() {
                     </div>
 
                     <div class="desc">
-                        <span>${filterDesc}</span>
+                        <span>- ${filterDesc}</span>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@ function deleteNote(noteID) {
 }
 
 function updateNote(noteID, title, filterDesc) {
-	let description = filterDesc.replaceAll("<br/>", "\r\n");
+	let description = filterDesc.replaceAll("<br/>- ", "\r\n");
 	updateID = noteID;
 	isUpdate = true;
 	addBox.click();
