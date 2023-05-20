@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+:root {
+    --x: 45deg;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -16,7 +20,6 @@
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -24,9 +27,257 @@ body {
     color: #fff;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 ::selection {
     color: #0f172a;
     background: #fff;
+}
+
+#scrollbarPath {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 3;
+}
+
+#progressBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animate 5s linear infinite;
+    z-index: 3;
+}
+
+@keyframes animate {
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+#progressBar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(1rem);
+    z-index: 3;
+}
+
+#progressBar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(3rem);
+    z-index: 3;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.popup-box .popup {
+    width: 100%;
+    max-width: 40rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    justify-content: center;
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.popup-box,
+.popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-box.show .popup {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup .content {
+    position: relative;
+    width: calc(100% - 1.5rem);
+    background: #1e293b;
+    border-radius: .5rem;
+    box-shadow: 0 0 1.5rem rgba(255, 255, 255, .1);
+}
+
+.content header {
+    margin: 1.5rem 2.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.content header p {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.content header i {
+    color: #8b8989;
+    font-size: 2.3rem;
+    cursor: pointer;
+}
+
+.content form {
+    margin: 1.5rem 2.5rem 3.5rem;
+    z-index: 3;
+}
+
+.content form .form {
+    margin-bottom: 2rem;
+}
+
+form .form label {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+form :where(input, textarea) {
+    width: 100%;
+    height: 5rem;
+    outline: none;
+    font-size: 1.8rem;
+    padding: 0 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #999;
+}
+
+form :where(input, textarea):focus {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, .5);
+}
+
+form .form input::selection,
+form .form textarea::selection {
+    background: #0f172a;
+    color: #fff;
+}
+
+form .form textarea {
+    resize: none;
+    height: 15rem;
+    padding: .8rem 1.5rem;
+}
+
+.popup textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.popup textarea:hover::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 2.5rem;
+}
+
+.popup textarea:hover::-webkit-scrollbar-thumb {
+    background: #717171;
+    border-radius: 2.5rem;
+}
+
+form button {
+    width: 100%;
+    height: 5rem;
+    outline: none;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+form a {
+    position: relative;
+    width: 100%;
+    height: 6rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+form a i {
+    position: absolute;
+    inset: -2px;
+    display: block;
+    border-radius: .5rem;
+}
+
+form a i,
+form a i:nth-child(2) {
+    background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
+}
+
+form a i:nth-child(2) {
+    filter: blur(1rem);
+}
+
+form a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    border: 1px solid #040a29;
+    border-radius: .3rem;
+    background: rgba(14, 21, 56, 0.65);
+    overflow: hidden;
+}
+
+form a span:hover {
+    color: #fff;
+}
+
+form a span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, .075);
+    transform: skew(25deg);
 }
 
 .wrapper {
@@ -34,7 +285,7 @@ body {
     gap: 2.5rem;
     /* auto-fit: lắp đầy khoảng trống, min là 250px, max là 1fr */
     /* auto-fill: chỉ lắp đầy phần tử */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     margin: 5rem;
 }
 
@@ -42,8 +293,9 @@ body {
     background: #1e293b;
     color: #fff;
     height: 25rem;
-    border-radius: .5rem;
     padding: 1.5rem 2rem 2rem;
+    border-radius: .5rem;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 10px 15px -3px, rgba(255, 255, 255, 0.05) 0px 4px 6px -2px;
 }
 
 .add-box,
@@ -112,8 +364,13 @@ header,
 }
 
 .add-box a p {
+    color: #ccc;
     position: relative;
     z-index: 1;
+}
+
+.add-box a:hover p {
+    color: #fff;
 }
 
 .add-box a::before {
@@ -150,28 +407,40 @@ header,
     justify-content: space-between;
 }
 
-.note .details {
-    max-height: 16rem;
+.note .details .title p {
+    text-transform: capitalize;
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.note .details .desc {
+    max-height: 13rem;
     overflow-y: auto;
 }
 
-.note .details p {
-    text-transform: capitalize;
-    font-size: 2.2rem;
-    font-weight: 500;
+.note .details .desc::-webkit-scrollbar {
+    background: #1e293b;
+    width: 5px;
 }
 
-.note .details span {
+.note .details .desc:hover::-webkit-scrollbar-thumb {
+    background: #717171;
+    border-radius: 2.5rem;
+}
+
+.note .details .desc span {
     display: block;
-    margin-top: 5px;
+    margin-right: 5px;
     font-size: 1.6rem;
     background: #172037;
     border-radius: 2px;
     padding: 0 5px;
+    font-size: 2rem;
     text-transform: capitalize;
 }
 
-.note .details span:nth-child(odd) {
+.note .details .desc span:nth-child(odd) {
     background: #3d4862;
 }
 
@@ -204,12 +473,13 @@ header,
     padding: 5px 0;
     background-color: #172037;
     border-radius: 4px;
+    box-shadow: 0 0 1.5rem rgba(255, 255, 255, .1);
     transform: scale(0);
     transform-origin: bottom right;
     transition: transform 0.2s ease;
 }
 
-.settings:hover .menu {
+.settings.show .menu {
     transform: scale(1);
 }
 
@@ -238,6 +508,15 @@ header,
 }
 
 @media (max-width: 660px) {
+    html {
+        font-size: 55%;
+    }
+
+    .popup-box .popup {
+        max-width: calc(100% - 1.5rem);
+        margin: .8rem;
+    }
+
     .wrapper {
         margin: 1.5rem;
         gap: 1.5rem;

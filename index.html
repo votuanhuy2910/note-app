@@ -5,8 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
 
 		<link
 			rel="stylesheet"
@@ -18,140 +20,60 @@
 		<title>Notepad</title>
 	</head>
 	<body>
-		<!-- <div class="popup-box">
+		<div id="progressBar"></div>
+		<div id="scrollbarPath"></div>
+        
+		<div class="popup-box">
 			<div class="popup">
 				<div class="content">
 					<header>
-						<p>Description</p>
+						<p></p>
 						<i class="uil uil-times"></i>
 					</header>
 
 					<form action="#">
 						<div class="form title">
-							<label for="">title</label>
+							<label for="">Title</label>
 							<input type="text" spellcheck="false" />
 						</div>
 
 						<div class="form description">
-							<label for="">description</label>
+							<label for="">Description</label>
 							<textarea spellcheck="false"></textarea>
 						</div>
-                        <button>add to note</button>
+
+						<a>
+							<i></i>
+							<i></i>
+							<span></span>
+						</a>
 					</form>
 				</div>
 			</div>
-		</div> -->
-        
-        <div class="wrapper">
-            <li class="add-box">
-                <div class="icon">
-                    <i class="uil uil-plus"></i>
-                    <div></div>
-                </div>
-                <a><p>Add new note</p></a>
-            </li>
+		</div>
 
-            <li class="note">
-                <div class="details">
-                    <p>title</p>
-                    <span>description</span>
-                    <span>description</span>
-                    <span>description</span>
-                </div>
-
-                <div class="bottom-info">
-                    <span>16/5/2023</span>
-                    <div class="settings">
-                        <i class="uil uil-ellipsis-h"></i>
-                        <ul class="menu">
-                            <li><i class="uil uil-pen"></i>edit</li>
-                            <li><i class="uil uil-trash"></i>delete</li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-
-			<li class="note">
-                <div class="details">
-                    <p>title</p>
-                    <span>description</span>
-                    <span>description</span>
-                    <span>description</span>
-                </div>
-
-                <div class="bottom-info">
-                    <span>16/5/2023</span>
-                    <div class="settings">
-                        <i class="uil uil-ellipsis-h"></i>
-                        <ul class="menu">
-                            <li><i class="uil uil-pen"></i>edit</li>
-                            <li><i class="uil uil-trash"></i>delete</li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-
-			<li class="note">
-                <div class="details">
-                    <p>title</p>
-                    <span>description</span>
-                    <span>description</span>
-                    <span>description</span>
-                </div>
-
-                <div class="bottom-info">
-                    <span>16/5/2023</span>
-                    <div class="settings">
-                        <i class="uil uil-ellipsis-h"></i>
-                        <ul class="menu">
-                            <li><i class="uil uil-pen"></i>edit</li>
-                            <li><i class="uil uil-trash"></i>delete</li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-
-			<li class="note">
-                <div class="details">
-                    <p>title</p>
-                    <span>description</span>
-                    <span>description</span>
-                    <span>description</span>
-                </div>
-
-                <div class="bottom-info">
-                    <span>16/5/2023</span>
-                    <div class="settings">
-                        <i class="uil uil-ellipsis-h"></i>
-                        <ul class="menu">
-                            <li><i class="uil uil-pen"></i>edit</li>
-                            <li><i class="uil uil-trash"></i>delete</li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-
-			<li class="note">
-                <div class="details">
-                    <p>title</p>
-                    <span>description</span>
-                    <span>description</span>
-                    <span>description</span>
-                </div>
-
-                <div class="bottom-info">
-                    <span>16/5/2023</span>
-                    <div class="settings">
-                        <i class="uil uil-ellipsis-h"></i>
-                        <ul class="menu">
-                            <li><i class="uil uil-pen"></i>edit</li>
-                            <li><i class="uil uil-trash"></i>delete</li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-        </div>
+		<div class="wrapper">
+			<li class="add-box">
+				<div class="icon">
+					<i class="uil uil-plus"></i>
+					<div></div>
+				</div>
+				<a><p>Add new note</p></a>
+			</li>
+		</div>
 	</body>
 
 	<script src="/script.js"></script>
+	<script>
+		let progress = document.getElementById("progressBar");
+
+		let body = document.body;
+
+		let totalHeight = body.scrollHeight - window.innerHeight;
+
+		window.onscroll = function () {
+			let progressHeight = (window.pageYOffset / totalHeight) * 100;
+			progress.style.height = progressHeight + "%";
+		};
+	</script>
 </html>
