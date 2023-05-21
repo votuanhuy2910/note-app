@@ -66,13 +66,8 @@ function showNotes() {
 		let liTag = `
             <li class="note">
                 <div class="details">
-                    <div class="title">
-                        <p>${note.title}</p>
-                    </div>
-
-                    <div class="desc">
-                        <span>- ${filterDesc}</span>
-                    </div>
+					<p>${note.title}</p>
+					<span>- ${filterDesc}</span>
                 </div>
 
                 <div class="bottom-info">

@@ -285,14 +285,14 @@ form a span::before {
     gap: 2.5rem;
     /* auto-fit: lắp đầy khoảng trống, min là 250px, max là 1fr */
     /* auto-fill: chỉ lắp đầy phần tử */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
     margin: 5rem;
 }
 
 .wrapper li {
     background: #1e293b;
     color: #fff;
-    height: 25rem;
+    height: 30rem;
     padding: 1.5rem 2rem 2rem;
     border-radius: .5rem;
     box-shadow: rgba(255, 255, 255, 0.1) 0px 10px 15px -3px, rgba(255, 255, 255, 0.05) 0px 4px 6px -2px;
@@ -420,29 +420,29 @@ header,
     transform: skew(410deg);
 }
 
-.note .details .title p {
+.note .details p {
     text-transform: capitalize;
     font-size: 2.4rem;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.note .details .desc {
-    max-height: 11rem;
+.note .details {
+    max-height: 20rem;
     overflow-y: auto;
 }
 
-.note .details .desc::-webkit-scrollbar {
+.note .details::-webkit-scrollbar {
     background: #1e293b;
     width: 5px;
 }
 
-.note .details .desc:hover::-webkit-scrollbar-thumb {
+.note .details:hover::-webkit-scrollbar-thumb {
     background: #717171;
     border-radius: 2.5rem;
 }
 
-.note .details .desc span {
+.note .details span {
     display: block;
     margin-right: 5px;
     font-size: 1.6rem;
@@ -455,6 +455,7 @@ header,
 .note .bottom-info {
     padding-top: 1rem;
     border-top: 1px solid #ccc;
+    z-index: 1;
 }
 
 .bottom-info span {
@@ -526,8 +527,9 @@ header,
     }
 
     .wrapper {
-        margin: 1.5rem;
+        grid-template-columns: repeat(auto-fit, 100%);
         gap: 1.5rem;
+        margin: 1.5rem;
     }
 
     .bottom-info .settings i {
