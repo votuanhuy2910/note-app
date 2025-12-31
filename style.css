@@ -1,301 +1,301 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-    --x: 45deg;
+	--x: 45deg;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    list-style: none;
-    transition: all 0.2s linear;
-    line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	list-style: none;
+	transition: all 0.2s linear;
+	line-height: 1.5;
+	font-family: "Poppins", sans-serif;
 }
 
 html {
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 body {
-    background: #0f172a;
-    color: #fff;
+	background: #0f172a;
+	color: #fff;
 }
 
 ::-webkit-scrollbar {
-    width: 0;
+	width: 0;
 }
 
 ::selection {
-    color: #0f172a;
-    background: #fff;
+	color: #0f172a;
+	background: #fff;
 }
 
 #scrollbarPath {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 1rem;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    z-index: 3;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 1rem;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.05);
+	z-index: 3;
 }
 
 #progressBar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 1rem;
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    animation: animate 5s linear infinite;
-    z-index: 3;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 1rem;
+	background: linear-gradient(to top, #008aff, #00ffe7);
+	animation: animate 5s linear infinite;
+	z-index: 3;
 }
 
 @keyframes animate {
+	0%,
+	100% {
+		filter: hue-rotate(0deg);
+	}
 
-    0%,
-    100% {
-        filter: hue-rotate(0deg);
-    }
-
-    50% {
-        filter: hue-rotate(360deg);
-    }
+	50% {
+		filter: hue-rotate(360deg);
+	}
 }
 
 #progressBar::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    filter: blur(1rem);
-    z-index: 3;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, #008aff, #00ffe7);
+	filter: blur(1rem);
+	z-index: 3;
 }
 
 #progressBar::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    filter: blur(3rem);
-    z-index: 3;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, #008aff, #00ffe7);
+	filter: blur(3rem);
+	z-index: 3;
 }
 
 .popup-box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.4);
 }
 
 .popup-box .popup {
-    width: 100%;
-    max-width: 40rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 3;
-    justify-content: center;
-    transform: translate(-50%, -50%) scale(0.95);
+	width: 100%;
+	max-width: 40rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+	justify-content: center;
+	transform: translate(-50%, -50%) scale(0.95);
 }
 
 .popup-box,
 .popup {
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.25s ease;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.25s ease;
 }
 
 .popup-box.show,
 .popup-box.show .popup {
-    opacity: 1;
-    pointer-events: auto;
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .popup-box.show .popup {
-    transform: translate(-50%, -50%) scale(1);
+	transform: translate(-50%, -50%) scale(1);
 }
 
 .popup .content {
-    position: relative;
-    width: calc(100% - 1.5rem);
-    background: #1e293b;
-    border-radius: .5rem;
-    box-shadow: 0 0 1.5rem rgba(255, 255, 255, .1);
+	position: relative;
+	width: calc(100% - 1.5rem);
+	background: #1e293b;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.1);
 }
 
 .content header {
-    margin: 1.5rem 2.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ccc;
+	margin: 1.5rem 2.5rem;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
 }
 
 .content header p {
-    font-size: 2rem;
-    font-weight: 500;
+	font-size: 2rem;
+	font-weight: 500;
 }
 
 .content header i {
-    color: #8b8989;
-    font-size: 2.3rem;
-    cursor: pointer;
+	color: #8b8989;
+	font-size: 2.3rem;
+	cursor: pointer;
 }
 
 .content form {
-    margin: 1.5rem 2.5rem 3.5rem;
-    z-index: 3;
+	margin: 1.5rem 2.5rem 3.5rem;
+	z-index: 3;
 }
 
 .content form .form {
-    margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 
 form .form label {
-    font-size: 1.8rem;
-    display: block;
-    margin-bottom: 0.6rem;
+	font-size: 1.8rem;
+	display: block;
+	margin-bottom: 0.6rem;
 }
 
 form :where(input, textarea) {
-    width: 100%;
-    height: 5rem;
-    outline: none;
-    font-size: 1.8rem;
-    padding: 0 1.5rem;
-    border-radius: 4px;
-    border: 1px solid #999;
+	width: 100%;
+	height: 5rem;
+	outline: none;
+	font-size: 1.8rem;
+	padding: 0 1.5rem;
+	border-radius: 4px;
+	border: 1px solid #999;
 }
 
 form :where(input, textarea):focus {
-    box-shadow: 0 2px 4px rgba(255, 255, 255, .5);
+	box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 form .form input::selection,
 form .form textarea::selection {
-    background: #0f172a;
-    color: #fff;
+	background: #0f172a;
+	color: #fff;
 }
 
 form .form textarea {
-    resize: none;
-    height: 15rem;
-    padding: .8rem 1.5rem;
+	resize: none;
+	height: 15rem;
+	padding: 0.8rem 1.5rem;
 }
 
 .popup textarea::-webkit-scrollbar {
-    width: 5px;
+	width: 5px;
 }
 
 .popup textarea:hover::-webkit-scrollbar-track {
-    background: #fff;
-    border-radius: 2.5rem;
+	background: #fff;
+	border-radius: 2.5rem;
 }
 
 .popup textarea:hover::-webkit-scrollbar-thumb {
-    background: #717171;
-    border-radius: 2.5rem;
+	background: #717171;
+	border-radius: 2.5rem;
 }
 
 form button {
-    width: 100%;
-    height: 5rem;
-    outline: none;
-    margin-bottom: 2rem;
-    border: none;
-    border-radius: .5rem;
-    font-size: 1.7rem;
-    cursor: pointer;
+	width: 100%;
+	height: 5rem;
+	outline: none;
+	margin-bottom: 2rem;
+	border: none;
+	border-radius: 0.5rem;
+	font-size: 1.7rem;
+	cursor: pointer;
 }
 
 form a {
-    position: relative;
-    width: 100%;
-    height: 6rem;
-    display: inline-block;
-    margin-bottom: 2rem;
-    border-radius: .5rem;
-    cursor: pointer;
+	position: relative;
+	width: 100%;
+	height: 6rem;
+	display: inline-block;
+	margin-bottom: 2rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
 }
 
 form a i {
-    position: absolute;
-    inset: -2px;
-    display: block;
-    border-radius: .5rem;
+	position: absolute;
+	inset: -2px;
+	display: block;
+	border-radius: 0.5rem;
 }
 
 form a i,
 form a i:nth-child(2) {
-    background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
+	background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
 }
 
 form a i:nth-child(2) {
-    filter: blur(1rem);
+	filter: blur(1rem);
 }
 
 form a span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ccc;
-    font-size: 1.7rem;
-    letter-spacing: 2px;
-    border: 1px solid #040a29;
-    border-radius: .3rem;
-    background: rgba(14, 21, 56, 0.65);
-    overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ccc;
+	font-size: 1.7rem;
+	letter-spacing: 2px;
+	border: 1px solid #040a29;
+	border-radius: 0.3rem;
+	background: rgba(14, 21, 56, 0.65);
+	overflow: hidden;
 }
 
 form a span:hover {
-    color: #fff;
+	color: #fff;
 }
 
 form a span::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, .075);
-    transform: skew(25deg);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -50%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.075);
+	transform: skew(25deg);
 }
 
 .wrapper {
-    display: grid;
-    gap: 2.5rem;
-    /* auto-fit: lắp đầy khoảng trống, min là 250px, max là 1fr */
-    /* auto-fill: chỉ lắp đầy phần tử */
-    grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
-    margin: 5rem;
+	display: grid;
+	gap: 2.5rem;
+	/* auto-fit: lắp đầy khoảng trống, min là 250px, max là 1fr */
+	/* auto-fill: chỉ lắp đầy phần tử */
+	grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+	margin: 3rem 5rem 5rem 5rem;
 }
 
 .wrapper li {
-    background: #1e293b;
-    color: #fff;
-    height: 30rem;
-    padding: 1.5rem 2rem 2rem;
-    border-radius: .5rem;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 10px 15px -3px, rgba(255, 255, 255, 0.05) 0px 4px 6px -2px;
+	background: #1e293b;
+	color: #fff;
+	height: 30rem;
+	padding: 1.5rem 2rem 2rem;
+	border-radius: 0.5rem;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 10px 15px -3px,
+		rgba(255, 255, 255, 0.05) 0px 4px 6px -2px;
 }
 
 .add-box,
@@ -304,235 +304,255 @@ form a span::before {
 .popup-box,
 header,
 .settings .menu li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .add-box {
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
+	flex-direction: column;
+	justify-content: center;
+	cursor: pointer;
 }
 
 .add-box .icon {
-    position: relative;
-    width: 78px;
-    height: 78px;
-    color: #62bdf2;
-    font-size: 4rem;
-    justify-content: center;
+	position: relative;
+	width: 78px;
+	height: 78px;
+	color: #62bdf2;
+	font-size: 4rem;
+	justify-content: center;
 }
 
-.add-box .icon>div {
-    position: absolute;
-    width: 78px;
-    height: 78px;
-    border-radius: 50%;
-    border: 2px dashed #62bdf2;
+.add-box .icon > div {
+	position: absolute;
+	width: 78px;
+	height: 78px;
+	border-radius: 50%;
+	border: 2px dashed #62bdf2;
 }
 
 .add-box .icon:hover i {
-    color: #9cd0ef;
-    transform: rotate(135deg);
-    transition: .2s linear;
+	color: #9cd0ef;
+	transform: rotate(135deg);
+	transition: 0.2s linear;
 }
 
-.add-box .icon>div:hover {
-    border: 2px dashed #9cd0ef;
-    animation: spin 2s linear infinite;
+.add-box .icon > div:hover {
+	border: 2px dashed #9cd0ef;
+	animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+	0% {
+		transform: rotate(0deg);
+	}
 
-    100% {
-        transform: rotate(360deg);
-    }
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .add-box a {
-    font-size: 2.4rem;
-    font-weight: 500;
-    margin-top: 2rem;
-    position: relative;
-    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
-    padding: 1rem 1.4rem;
-    border-radius: .9rem;
+	font-size: 2.4rem;
+	font-weight: 500;
+	margin-top: 2rem;
+	position: relative;
+	background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+	padding: 1rem 1.4rem;
+	border-radius: 0.9rem;
 }
 
 .add-box a p {
-    color: #ccc;
-    position: relative;
-    z-index: 1;
+	color: #ccc;
+	position: relative;
+	z-index: 1;
 }
 
 .add-box a:hover p {
-    color: #fff;
+	color: #fff;
 }
 
 .add-box a::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    background: #1e293b;
-    border-radius: .9rem;
-    transition: .3s linear;
+	content: "";
+	position: absolute;
+	inset: 1px;
+	background: #1e293b;
+	border-radius: 0.9rem;
+	transition: 0.3s linear;
 }
 
 .add-box a:hover::before {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
 .add-box a::after {
-    content: '';
-    position: absolute;
-    inset: 0px;
-    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
-    border-radius: .9rem;
-    transition: .3s linear;
-    opacity: 0;
-    filter: blur(1.5rem);
+	content: "";
+	position: absolute;
+	inset: 0px;
+	background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+	border-radius: 0.9rem;
+	transition: 0.3s linear;
+	opacity: 0;
+	filter: blur(1.5rem);
 }
 
 .add-box a:hover::after {
-    opacity: 1;
+	opacity: 1;
 }
 
 .note {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
 }
 
 .note::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -80%;
-    width: 65%;
-    height: 100%;
-    background: rgba(255, 255, 255, .075);
-    transform: skew(410deg);
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -80%;
+	width: 65%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.075);
+	transform: skew(410deg);
 }
 
 .note .details p {
-    text-transform: capitalize;
-    font-size: 2.4rem;
-    font-weight: 500;
-    margin-bottom: 5px;
+	text-transform: capitalize;
+	font-size: 2.4rem;
+	font-weight: 500;
+	margin-bottom: 5px;
 }
 
 .note .details {
-    max-height: 20rem;
-    overflow-y: auto;
+	max-height: 20rem;
+	overflow-y: auto;
 }
 
 .note .details::-webkit-scrollbar {
-    background: #1e293b;
-    width: 5px;
+	background: #1e293b;
+	width: 5px;
 }
 
 .note .details:hover::-webkit-scrollbar-thumb {
-    background: #717171;
-    border-radius: 2.5rem;
+	background: #717171;
+	border-radius: 2.5rem;
 }
 
 .note .details span {
-    display: block;
-    margin-right: 5px;
-    font-size: 1.6rem;
-    background: #172037;
-    border-radius: 2px;
-    padding: 0 5px;
-    font-size: 2rem;
+	display: block;
+	margin-right: 5px;
+	font-size: 1.6rem;
+	background: #172037;
+	border-radius: 2px;
+	padding: 0 5px;
+	font-size: 2rem;
 }
 
 .note .bottom-info {
-    padding-top: 1rem;
-    border-top: 1px solid #ccc;
-    z-index: 1;
+	padding-top: 1rem;
+	border-top: 1px solid #ccc;
+	z-index: 1;
 }
 
 .bottom-info span {
-    color: #6d6d6d;
-    background: none;
-    font-size: 1.4rem;
+	color: #6d6d6d;
+	background: none;
+	font-size: 1.4rem;
 }
 
 .bottom-info .settings {
-    position: relative;
+	position: relative;
 }
 
 .bottom-info .settings i {
-    color: #6d6d6d;
-    font-size: 1.5rem;
-    cursor: pointer;
+	color: #6d6d6d;
+	font-size: 1.5rem;
+	cursor: pointer;
 }
 
 .settings .menu {
-    z-index: 1;
-    position: absolute;
-    bottom: 0;
-    right: -5px;
-    padding: 5px 0;
-    background-color: #172037;
-    border-radius: 4px;
-    box-shadow: 0 0 1.5rem rgba(255, 255, 255, .1);
-    transform: scale(0);
-    transform-origin: bottom right;
-    transition: transform 0.2s ease;
+	z-index: 1;
+	position: absolute;
+	bottom: 0;
+	right: -5px;
+	padding: 5px 0;
+	background-color: #172037;
+	border-radius: 4px;
+	box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.1);
+	transform: scale(0);
+	transform-origin: bottom right;
+	transition: transform 0.2s ease;
 }
 
 .settings.show .menu {
-    transform: scale(1);
+	transform: scale(1);
 }
 
 .settings .menu li {
-    height: 2.5rem;
-    font-size: 1.6rem;
-    margin-bottom: 2px;
-    padding: 1.7rem 1.5rem;
-    text-transform: capitalize;
-    box-shadow: none;
-    background-color: #172037;
-    justify-content: flex-start;
-    cursor: pointer;
+	height: 2.5rem;
+	font-size: 1.6rem;
+	margin-bottom: 2px;
+	padding: 1.7rem 1.5rem;
+	text-transform: capitalize;
+	box-shadow: none;
+	background-color: #172037;
+	justify-content: flex-start;
+	cursor: pointer;
 }
 
 .menu li:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .menu li:hover {
-    background-color: #0f172a;
+	background-color: #0f172a;
 }
 
 .menu li i {
-    padding-right: 8px;
+	padding-right: 8px;
+}
+
+.export-box {
+	width: 80px;
+	height: 50px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 50px;
+	color: #22c55e;
+	border: 3px solid #22c55e;
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 10px 0 0 10px;
+	transition: 0.3s ease;
+}
+
+.export-box:hover {
+    background-color: #22c55e;
+    color: #fff;
+    font-weight: bold;
 }
 
 @media (max-width: 660px) {
-    html {
-        font-size: 55%;
-    }
+	html {
+		font-size: 55%;
+	}
 
-    .popup-box .popup {
-        max-width: calc(100% - 1.5rem);
-        margin: .8rem;
-    }
+	.popup-box .popup {
+		max-width: calc(100% - 1.5rem);
+		margin: 0.8rem;
+	}
 
-    .wrapper {
-        grid-template-columns: repeat(auto-fit, 100%);
-        gap: 1.5rem;
-        margin: 1.5rem;
-    }
+	.wrapper {
+		grid-template-columns: repeat(auto-fit, 100%);
+		gap: 1.5rem;
+		margin: 1.5rem;
+	}
 
-    .bottom-info .settings i {
-        font-size: 1.7rem;
-    }
+	.bottom-info .settings i {
+		font-size: 1.7rem;
+	}
 }

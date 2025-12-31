@@ -22,7 +22,7 @@
 	<body>
 		<div id="progressBar"></div>
 		<div id="scrollbarPath"></div>
-        
+
 		<div class="popup-box">
 			<div class="popup">
 				<div class="content">
@@ -52,7 +52,20 @@
 			</div>
 		</div>
 
+		<!-- Export to Excel -->
+		<li class="export-box" onclick="exportExcelXLSX()">
+			<a><p>Export Excel</p></a>
+		</li>
+
 		<div class="wrapper">
+			<!-- <li class="add-box export-box" onclick="exportExcel()">
+				<div class="icon1">
+					<i class="uil uil-file-export"></i>
+					<div></div>
+				</div>
+				<a><p>Export Excel</p></a>
+			</li> -->
+
 			<li class="add-box">
 				<div class="icon">
 					<i class="uil uil-plus"></i>
@@ -62,6 +75,8 @@
 			</li>
 		</div>
 	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
 	<script src="/script.js"></script>
 	<script>

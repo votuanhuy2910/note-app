@@ -169,4 +169,31 @@ addBtn.addEventListener("click", (e) => {
 		closeIcon.click();
 	}
 });
+
+function exportExcelXLSX() {
+	if (!notes || notes.length === 0) {
+		alert("No notes to export!");
+		return;
+	}
+
+	const data = notes.map((note, index) => ({
+		STT: index + 1,
+		Title: note.title,
+		Description: note.description,
+	}));
+
+	const worksheet = XLSX.utils.json_to_sheet(data);
+
+	const workbook = XLSX.utils.book_new();
+	XLSX.utils.book_append_sheet(workbook, worksheet, "Notes");
+
+	worksheet["!cols"] = [
+		{ wch: 4 }, // STT
+		{ wch: 30 }, // Title
+		{ wch: 60 }, // Description
+	];
+
+	// 5. Xuất file XLSX chuẩn
+	XLSX.writeFile(workbook, "notes.xlsx");
+}
 // end: progress function
